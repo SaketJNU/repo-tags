@@ -61,7 +61,7 @@ class TagfromReadme():
         #print "Length of readme file:", len(readme_file)
         #print "Length of stop-words:", len(stop_words)
         #print "Length of tags:", len(tag_list)
-        #print "Length of assigned tags", len(assigned_tags)
+        print "Length of assigned tags", len(assigned_tags)
         print "Tags assigned to the package:", assigned_tags
 
 
