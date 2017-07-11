@@ -7,9 +7,9 @@ class TagfromReadme():
     def __init__(self):
         pass
 
-    def read_file(self):
+    def read_file(self, filename):
         readme_file = []
-        for line in open("README.md"):
+        for line in open(filename):
             for text in line.split():
                 ftext = re.sub('[^a-zA-Z0-9-_.]', ' ', line)
                 for word in ftext.split():
@@ -51,10 +51,11 @@ class TagfromReadme():
                     assigned_tags.append(key)
         return assigned_tags
 
-    def fetch_tags(self):
+    def fetch_tags(self, filename):
+        """ fetches the tags from the readme file"""
         tag_list = self.read_tag_list()
         stop_words = self.read_stop_words()
-        readme_file = self.read_file()
+        readme_file = self.read_file(filename)
         keywords = self.remove_stopwords(readme_file, stop_words)
         assigned_tags = self.assign_tags(keywords, tag_list)
 
@@ -67,4 +68,4 @@ class TagfromReadme():
 
 if __name__ == "__main__":
     t = TagfromReadme()
-    t.fetch_tags()
+    t.fetch_tags("raw_data1.adoc")
